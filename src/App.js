@@ -4,6 +4,12 @@ import './css/side-menu.css';
 import './css/slick.css';
 
 class App extends Component {
+
+    constructor() {
+        super();
+        this.state = {lista: [{nome:'Caio',email:'caioalexandre.br@hotmail.com',senha:'12345'}]};
+    }
+
     render() {
         return (
             <div id="layout">
@@ -58,10 +64,16 @@ class App extends Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Caio</td>
-                                        <td>caioalexandre.br@hotmail.com</td>
-                                    </tr>
+                                    {
+                                        this.state.lista.map(function(autor){
+                                            return (
+                                                <tr>
+                                                    <td>{autor.nome}</td>
+                                                    <td>{autor.email}</td>
+                                                </tr>
+                                            );
+                                        })
+                                    }
                                 </tbody>
                             </table>
                         </div>
