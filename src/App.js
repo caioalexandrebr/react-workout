@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './css/pure-min.css';
 import './css/side-menu.css';
+import './css/slick.css';
 
 class App extends Component {
     render() {
@@ -58,11 +59,24 @@ class App extends Component {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Alberto</td>
-                                        <td>alberto.souza@caelum.com.br</td>
+                                        <td>Caio</td>
+                                        <td>caioalexandre.br@hotmail.com</td>
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+
+                    <div className="content">
+                        <div className="responsive">
+                            <div className="item"><img src="https://statics.livrariacultura.net.br/products/capas/976/42128976.jpg" alt=""/></div>
+                            <div className="item"><img src="https://statics.livrariacultura.net.br/products/capas/904/2533904.jpg" alt=""/></div>
+                            <div className="item"><img src="https://statics.livrariacultura.net.br/products/capas/917/94041917.jpg" alt=""/></div>
+                            <div className="item"><img src="https://statics.livrariacultura.net.br/products/capas/686/2010469686.jpg" alt=""/></div>
+                            <div className="item"><img src="https://statics.livrariacultura.net.br/products/capas/230/111827230.jpg" alt=""/></div>
+                            <div className="item"><img src="https://statics.livrariacultura.net.br/products/capas/676/2010651676.jpg" alt=""/></div>
+                            <div className="item"><img src="https://statics.livrariacultura.net.br/products/capas/038/17143038.jpg" alt=""/></div>
+                            <div className="item"><img src="https://statics.livrariacultura.net.br/products/capas/099/2010476099.jpg" alt=""/></div>
                         </div>
                     </div>
                 </div>
