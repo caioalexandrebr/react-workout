@@ -10,7 +10,8 @@ class App extends Component {
         super();
         this.state = {lista: []};
     }
-
+    // componentWillMount(){} - Dispara antes do render()
+    // componentDidMount(){} - Dispara depois do primeiro render()
     componentDidMount(){
         $.ajax({
             url:"http://localhost:3004/autores",
@@ -92,14 +93,102 @@ class App extends Component {
 
                     <div className="content">
                         <div className="responsive">
-                            <div className="item"><img src="https://statics.livrariacultura.net.br/products/capas/976/42128976.jpg" alt=""/></div>
-                            <div className="item"><img src="https://statics.livrariacultura.net.br/products/capas/904/2533904.jpg" alt=""/></div>
-                            <div className="item"><img src="https://statics.livrariacultura.net.br/products/capas/917/94041917.jpg" alt=""/></div>
-                            <div className="item"><img src="https://statics.livrariacultura.net.br/products/capas/686/2010469686.jpg" alt=""/></div>
-                            <div className="item"><img src="https://statics.livrariacultura.net.br/products/capas/230/111827230.jpg" alt=""/></div>
-                            <div className="item"><img src="https://statics.livrariacultura.net.br/products/capas/676/2010651676.jpg" alt=""/></div>
-                            <div className="item"><img src="https://statics.livrariacultura.net.br/products/capas/038/17143038.jpg" alt=""/></div>
-                            <div className="item"><img src="https://statics.livrariacultura.net.br/products/capas/099/2010476099.jpg" alt=""/></div>
+                            <div className="item">
+                                <div className="card">
+                                    <div className="card-book">
+                                        <div className="book-img">
+                                            <img src="https://statics.livrariacultura.net.br/products/capas/904/2533904.jpg" alt="" />
+                                        </div>
+                                        <div className="book-desc">
+                                            <h3 className="book-title">Nam iaculis pulvinar euismod</h3>
+                                            <span className="book-author">Dolor Sit Amet</span>
+                                            <span className="book-oldprice">R$ 36,20</span>
+                                            <h4 className="book-price">R$ 19,20</h4>
+                                        </div>
+                                    </div>
+                                    <a className="buy" href="/"><div className="buy-btn">Comprar</div></a>
+                                </div>
+                            </div>
+                            <div className="item">
+                                <div className="card">
+                                    <div className="card-book">
+                                        <div className="book-img">
+                                            <img src="https://statics.livrariacultura.net.br/products/capas/976/42128976.jpg" alt="" />
+                                        </div>
+                                        <div className="book-desc">
+                                            <h3 className="book-title">Nam iaculis pulvinar euismod</h3>
+                                            <span className="book-author">Dolor Sit Amet</span>
+                                            <span className="book-oldprice">R$ 36,20</span>
+                                            <h4 className="book-price">R$ 19,20</h4>
+                                        </div>
+                                    </div>
+                                    <a className="buy" href="/"><div className="buy-btn">Comprar</div></a>
+                                </div>
+                            </div>
+                            <div className="item">
+                                <div className="card">
+                                    <div className="card-book">
+                                        <div className="book-img">
+                                            <img src="https://statics.livrariacultura.net.br/products/capas/976/42128976.jpg" alt="" />
+                                        </div>
+                                        <div className="book-desc">
+                                            <h3 className="book-title">Nam iaculis pulvinar euismod</h3>
+                                            <span className="book-author">Dolor Sit Amet</span>
+                                            <span className="book-oldprice">R$ 36,20</span>
+                                            <h4 className="book-price">R$ 19,20</h4>
+                                        </div>
+                                    </div>
+                                    <a className="buy" href="/"><div className="buy-btn">Comprar</div></a>
+                                </div>
+                            </div>
+                            <div className="item">
+                                <div className="card">
+                                    <div className="card-book">
+                                        <div className="book-img">
+                                            <img src="https://statics.livrariacultura.net.br/products/capas/976/42128976.jpg" alt="" />
+                                        </div>
+                                        <div className="book-desc">
+                                            <h3 className="book-title">Nam iaculis pulvinar euismod</h3>
+                                            <span className="book-author">Dolor Sit Amet</span>
+                                            <span className="book-oldprice">R$ 36,20</span>
+                                            <h4 className="book-price">R$ 19,20</h4>
+                                        </div>
+                                    </div>
+                                    <a className="buy" href="/"><div className="buy-btn">Comprar</div></a>
+                                </div>
+                            </div>
+                            <div className="item">
+                                <div className="card">
+                                    <div className="card-book">
+                                        <div className="book-img">
+                                            <img src="https://statics.livrariacultura.net.br/products/capas/976/42128976.jpg" alt="" />
+                                        </div>
+                                        <div className="book-desc">
+                                            <h3 className="book-title">Nam iaculis pulvinar euismod</h3>
+                                            <span className="book-author">Dolor Sit Amet</span>
+                                            <span className="book-oldprice">R$ 36,20</span>
+                                            <h4 className="book-price">R$ 19,20</h4>
+                                        </div>
+                                    </div>
+                                    <a className="buy" href="/"><div className="buy-btn">Comprar</div></a>
+                                </div>
+                            </div>
+                            <div className="item">
+                                <div className="card">
+                                    <div className="card-book">
+                                        <div className="book-img">
+                                            <img src="https://statics.livrariacultura.net.br/products/capas/976/42128976.jpg" alt="" />
+                                        </div>
+                                        <div className="book-desc">
+                                            <h3 className="book-title">Nam iaculis pulvinar euismod</h3>
+                                            <span className="book-author">Dolor Sit Amet</span>
+                                            <span className="book-oldprice">R$ 36,20</span>
+                                            <h4 className="book-price">R$ 19,20</h4>
+                                        </div>
+                                    </div>
+                                    <a className="buy" href="/"><div className="buy-btn">Comprar</div></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -14,8 +14,62 @@
     <div id="root"></div>
 
     <style>
-        .item img {
-            margin: 0 auto;
+        body {
+            background: #f7f7f7;
+        }
+
+        h1, h2, h3, h4, h5, h6, span {
+            margin: 0;
+            padding: 0;
+        }
+
+        .item {
+            padding: 5px;
+        }
+        .card {
+            padding: 10px;
+            background-color: white;
+        }
+        .card-book {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .book-img, .book-desc {
+            width: 50%;
+        }
+        .book-desc {
+            padding-left: 10px;
+        }
+        .book-title {
+            font-size: 16px;
+        }
+        .book-author {
+            display: block;
+            font-size: 12px;
+        }
+        .book-oldprice {
+            display: block;
+            font-size: 14px;
+            text-decoration: line-through;
+        }
+        .book-price {
+            font-size: 18px;
+        }
+        .buy {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+        }
+        .buy-btn {
+            text-align: center;
+            color: white;
+            padding: 10px 0px;
+            font-weight: bold;
+            font-size: 14px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-transform: uppercase;
+            background-color: #1f8dd6;
         }
     </style>
     
@@ -29,9 +83,9 @@
                 dots: true,
                 infinite: false,
                 speed: 300,
-                slidesToShow: 4,
+                slidesToShow: 3,
                 slidesToScroll: 2,
-                autoplay: true,
+                autoplay: false,
                 autoplaySpeed: 2000,
                 responsive: [
                     {
