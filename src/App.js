@@ -2,12 +2,23 @@ import React, { Component } from 'react';
 import './css/pure-min.css';
 import './css/side-menu.css';
 import './css/slick.css';
+import $ from 'jquery';
 
 class App extends Component {
 
     constructor() {
         super();
-        this.state = {lista: [{nome:'Caio',email:'caioalexandre.br@hotmail.com',senha:'12345'}]};
+        this.state = {lista: []};
+    }
+
+    componentDidMount(){
+        $.ajax({
+            url:"http://localhost:3004/autores",
+            dataType: 'json',
+            success:function(data){
+                this.setState({lista:data});
+            }.bind(this)
+        })
     }
 
     render() {
@@ -67,7 +78,7 @@ class App extends Component {
                                     {
                                         this.state.lista.map(function(autor){
                                             return (
-                                                <tr>
+                                                <tr key={autor.id}>
                                                     <td>{autor.nome}</td>
                                                     <td>{autor.email}</td>
                                                 </tr>
