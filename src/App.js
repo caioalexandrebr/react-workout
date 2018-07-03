@@ -9,7 +9,7 @@ class App extends Component {
     constructor() {
         super();
         this.state = {lista: [], nome:'',email:'',senha:''};
-        this.enviaForm = this.enviaForm.bind(this);
+        this.sendForm = this.sendForm.bind(this);
         this.setNome = this.setNome.bind(this);
         this.setEmail = this.setEmail.bind(this);
         this.setSenha = this.setSenha.bind(this);
@@ -17,33 +17,31 @@ class App extends Component {
     // componentWillMount(){} - Dispara antes do render()
     // componentDidMount(){} - Dispara depois do primeiro render()
     componentDidMount(){
-        $.ajax({
-            url:"http://localhost:3004/autores",
-            dataType: 'json',
-            success:function(resposta){
-                this.setState({lista:resposta});
-            }.bind(this) // this por default dentro do callback é o this do jQuery.
+        var url = 'http://localhost:3004/autores ';
+        fetch(url).then(res => res.json())
+        .catch(error => console.error('Error:', error))
+        .then(response => {
+            this.setState({lista:response});
         })
     }
 
-    enviaForm(evento){
+    sendForm(evento){
         evento.preventDefault();
-        $.ajax({
-            url:"http://localhost:3004/autores",
-            contentType: 'application/json',
-            // contentType: 'json', - Não estava funcionando.
-            dataType: 'json',
-            method: 'post',
-            data: JSON.stringify({nome:this.state.nome,email:this.state.email,senha:this.state.senha}),
-            success: function(response){
-                const listaAntiga = this.state.lista;
-                listaAntiga.push(response);
-                this.setState({lista: listaAntiga});
-            }.bind(this),
-            error: function(response){
-                console.log("Erro!");
-            }
-        });
+        var url = 'http://localhost:3004/autores ';
+        fetch(url, {
+        method: 'POST', // or 'PUT'
+        body: JSON.stringify({nome:this.state.nome,email:this.state.email,senha:this.state.senha}), // data can be `string` or {object}!
+        headers:{
+            'Content-Type': 'application/json'
+        }
+        }).then(res => res.json())
+        .catch(error => console.error('Error:', error))
+        .then(response => {
+            const oltList = this.state.lista;
+            oltList.push(response);
+            const newList = oltList;
+            this.setState({lista: newList});
+        })
     }
 
     setNome(evento){
@@ -82,7 +80,7 @@ class App extends Component {
                     </div>
                     <div className="content" id="content">
                         <div className="pure-form pure-form-aligned">
-                            <form className="pure-form pure-form-aligned" onSubmit={this.enviaForm.bind(this)} method="post">
+                            <form className="pure-form pure-form-aligned" onSubmit={this.sendForm.bind(this)} method="post">
                                 <div className="pure-control-group">
                                     <label htmlFor="nome">Nome</label>
                                     <input id="nome" type="text" name="nome" value={this.state.nome} onChange={this.setNome} />
@@ -105,7 +103,6 @@ class App extends Component {
                             <table className="pure-table">
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
                                         <th>Nome</th>
                                         <th>email</th>
                                     </tr>
@@ -115,7 +112,6 @@ class App extends Component {
                                         this.state.lista.map(function(autor){
                                             return (
                                                 <tr key={autor.id}>
-                                                    <td>{autor.id}</td>
                                                     <td>{autor.nome}</td>
                                                     <td>{autor.email}</td>
                                                 </tr>
