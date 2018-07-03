@@ -1,9 +1,10 @@
 {
-    "autores": [
-        {
-            "id": 1,
-            "nome": "Caio",
-            "email": "caioalexandre.br@hotmail.com"
-        }
-    ]
+  "autores": [
+    {
+      "id": 1,
+      "nome": "Caio",
+      "email": "caioalexandre.br@hotmail.com",
+      "senha": "12345"
+    }
+  ]
 }

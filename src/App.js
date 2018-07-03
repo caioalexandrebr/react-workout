@@ -20,9 +20,9 @@ class App extends Component {
         $.ajax({
             url:"http://localhost:3004/autores",
             dataType: 'json',
-            success:function(data){
-                this.setState({lista:data});
-            }.bind(this)
+            success:function(resposta){
+                this.setState({lista:resposta});
+            }.bind(this) // this por default dentro do callback é o this do jQuery.
         })
     }
 
@@ -30,13 +30,16 @@ class App extends Component {
         evento.preventDefault();
         $.ajax({
             url:"http://localhost:3004/autores",
-            contentType: 'json',
+            contentType: 'application/json',
+            // contentType: 'json', - Não estava funcionando.
             dataType: 'json',
             method: 'post',
             data: JSON.stringify({nome:this.state.nome,email:this.state.email,senha:this.state.senha}),
             success: function(response){
-                console.log("Sucesso!");
-            },
+                const listaAntiga = this.state.lista;
+                listaAntiga.push(response);
+                this.setState({lista: listaAntiga});
+            }.bind(this),
             error: function(response){
                 console.log("Erro!");
             }
@@ -63,7 +66,7 @@ class App extends Component {
 
                 <div id="menu">
                     <div className="pure-menu">
-                        <a className="pure-menu-heading" href="/">Company</a>
+                        <a className="pure-menu-heading" href="/">React</a>
 
                         <ul className="pure-menu-list">
                             <li className="pure-menu-item"><a href="/" className="pure-menu-link">Home</a></li>
@@ -79,7 +82,7 @@ class App extends Component {
                     </div>
                     <div className="content" id="content">
                         <div className="pure-form pure-form-aligned">
-                            <form className="pure-form pure-form-aligned" onSubmit={this.enviaForm} method="post">
+                            <form className="pure-form pure-form-aligned" onSubmit={this.enviaForm.bind(this)} method="post">
                                 <div className="pure-control-group">
                                     <label htmlFor="nome">Nome</label>
                                     <input id="nome" type="text" name="nome" value={this.state.nome} onChange={this.setNome} />
@@ -102,6 +105,7 @@ class App extends Component {
                             <table className="pure-table">
                                 <thead>
                                     <tr>
+                                        <th>Id</th>
                                         <th>Nome</th>
                                         <th>email</th>
                                     </tr>
@@ -111,6 +115,7 @@ class App extends Component {
                                         this.state.lista.map(function(autor){
                                             return (
                                                 <tr key={autor.id}>
+                                                    <td>{autor.id}</td>
                                                     <td>{autor.nome}</td>
                                                     <td>{autor.email}</td>
                                                 </tr>
